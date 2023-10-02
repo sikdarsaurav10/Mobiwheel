@@ -1,0 +1,1 @@
+$(window).ready(function(){$("#filterPhone").on('click', function(){$("#filterHidden").toggle('slow');});});

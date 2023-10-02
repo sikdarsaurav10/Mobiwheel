@@ -1,0 +1,89 @@
+{% extends 'layout.html'%}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/brand.css') }}">
+{% endblock %}
+{% block nav %}
+<a href="{{ url_for('index') }}" class="nav-item nav-link">Home</a>
+<a href="{{ url_for('about') }}" class="nav-item nav-link">About us</a>
+<a href="{{ url_for('brand') }}" class="nav-item nav-link active">Brands</a>
+<a href="{{ url_for('buyPhone') }}" class="nav-item nav-link">Buy Used Phone</a>
+{% endblock %}
+{% block content %}
+<section class="BrImg">
+  <div class="container-fluid BrImgCont">
+    <div class="BrImgText">
+      <h1 id="hdText">Serving all major Mobile Brands</h1>
+    </div>
+  </div>
+  <br>
+  <hr>
+</section>
+<section class="brBody">
+  <div class="container-fluid brCont">
+    <div class="row">
+      <div class="col-md-4 col-sm brColImg">
+        <a href="{{ url_for('book_X') }}">
+          <img src="{{ url_for('static', filename='images/xiaomi.png') }}" alt="xiaomi company logo">
+        </a>
+        <h5>Xiaomi</h5>
+      </div>
+      <div class="col-md-4 col-sm brColImg">
+        <a href="{{ url_for('book_P') }}">
+          <img src="{{ url_for('static', filename='images/oneplus.png') }}" alt="one plus company logo">
+        </a>
+        <h5>OnePlus</h5>
+      </div>
+      <div class="col-md-4 col-sm brColImg">
+        <a href="{{ url_for('book_A') }}">
+          <img src="{{ url_for('static', filename='images/apple.png') }}" alt="apple company logo">
+        </a>
+        <h5>Apple</h5>
+      </div>
+    </div>
+    <div class="brBanner">
+      <h2>Free Screen Protector</h2>
+      <h1>Get a Free Screen Protector with every phone screen repair</h1>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-sm brColImg brColImgLg">
+        <a href="{{ url_for('book_S') }}">
+          <img src="{{ url_for('static', filename='images/samsung.png') }}" alt="samsung company logo">
+        </a>
+        <h5>Samsung</h5>
+      </div>
+      <div class="col-md-4 col-sm brColImg brColImgLg">
+        <a href="{{ url_for('book_O') }}">
+          <img src="{{ url_for('static', filename='images/oppo.png') }}" alt="oppo company logo">
+        </a>
+        <h5>Oppo</h5>
+      </div>
+      <div class="col-md-4 col-sm brColImg brColImgLg">
+        <a href="{{ url_for('book_V') }}">
+          <img src="{{ url_for('static', filename='images/vivo.png') }}" alt="vivo company logo">
+        </a>
+        <h5>Vivo</h5>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-sm brColImg brColImgLg">
+        <a href="{{ url_for('book_L') }}">
+          <img src="{{ url_for('static', filename='images/lenovo.png') }}" alt="lenovo company logo">
+        </a>
+        <h5>Lenovo</h5>
+      </div>
+      <div class="col-md-4 col-sm brColImg brColImgLg">
+        <a href="{{ url_for('book_M') }}">
+          <img src="{{ url_for('static', filename='images/motorola.png') }}" alt="motorola company logo">
+        </a>
+        <h5>Motorola</h5>
+      </div>
+      <div class="col-md-4 col-sm brColImg brColImgLg">
+        <a href="{{ url_for('book_H') }}">
+          <img src="{{ url_for('static', filename='images/huawei.png') }}" alt="huawei company logo">
+        </a>
+        <h5>Huawei</h5>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

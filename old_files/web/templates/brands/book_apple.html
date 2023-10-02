@@ -1,0 +1,98 @@
+{% extends 'layout.html'%}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/book.css') }}">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap" rel="stylesheet">
+{% endblock %}
+{% block content %}
+<p></p>
+<hr>
+<section class="rpHead">
+  <div class="container rpHeadTxt">
+    <h1>{% block headTitle %}iPhone Mobile Repair Service{% endblock %}</h1>
+  </div>
+</section>
+<hr>
+<section class="rpBody">
+  <div class="container-fluid rpCont">
+    <div class="row">
+      <div class="col-sm">
+        {% block qoute %}
+         <p>Apple’s iPhone is a brand renowned for its ease of use and sharp visuals. Despite the competitors being a few steps ahead in terms of resolution and pixels, iPhones have often been preferred for their natural colors and non-oversaturated display. This, however, comes at the cost of the screens being slightly more fragile than other brands.</p><p> Recreating the brand-new sharpness for shattered-screen iPhones can be difficult for repair centers, not to mention quite costly. MobiWheel solves that problem by having iPhone repair experts come at your door to replace the broken screen. Your iPhone will look brand-new without straining your pockets.</p>
+        {% endblock %}
+        <p></p>
+        <hr>
+        <h4>Book Now & Get free screen protector</h4>
+        <p>Get premium doorstep mobile repair service!</p>
+        <p>Call us at +91-7417736676 or just click on the call icon to make booking.</p>
+        <form action="" method="POST" id="brand-submit-form">
+          <div class="form-group">
+            <label for="selectBrand">Select Brand</label>
+            <select class="form-control" id="selectBrand" name="Brand" required>
+              <option value="Apple">Apple</option>
+              <option value="Xiaomi">Xiaomi</option>
+              <option value="Samsung">Samsung</option>
+              <option value="Vivo">Vivo</option>
+              <option value="Oppo">Oppo</option>
+              <option value="Lenovo">Lenovo</option>
+              <option value="One_Plus">One Plus</option>
+              <option value="Motorola">Motorola</option>
+              <option value="Huawei">Huawei</option>
+              <option value="Nokia">Nokia</option>
+              <option value="Asus">Asus</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="selectModel">Select Model</label>
+            <select class="form-control" id="selectModel" name="Model" required>
+              <option value="Iphone 5">Iphone 5</option>
+              <option value="Iphone 5s">Iphone 5s</option>
+              <option value="Iphone SE">Iphone SE</option>
+              <option value="Iphone 6">Iphone 6</option>
+              <option value="Iphone 6s">Iphone 6s</option>
+              <option value="Iphone 6s plus">Iphone 6s plus</option>
+              <option value="Iphone 6 plus">Iphone 6 plus</option>
+              <option value="Iphone 7">Iphone 7</option>
+              <option value="Iphone 7plus">Iphone 7plus</option>
+              <option value="Iphone 8plus">Iphone 8plus</option>
+              <option value="Iphone 8">Iphone 8</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="InputName">Name</label>
+            <input type="text" class="form-control refresh" id="InputName" name="Name" placeholder="Full Name" required>
+          </div>
+          <div class="form-group">
+            <label for="InputCont">Your Phone No</label>
+            <input type="tel" class="form-control refresh" id="InputCont" pattern="[0-9]{10}" name="Contact_No" placeholder="Contact No" required>
+          </div>
+          <button type="submit" class="btn btn-outline-success btn-lg" id="brand-form-submit-btn" >Book Now</button><div id="form-response-brand"></div>
+      </form>
+      <div id="form-diag-brand">
+        <div class="toast m-2" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false">
+          <div class="toast-header">
+            <strong class="mr-auto">Submitted</strong>
+            <small>Just Now</small>
+            <button type="button" class="ml-2 mb-1 close" id="toast-close" data-dismiss="toast" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="toast-body"></div>
+        </div>
+      </div>
+      </div>
+      <div class="col-sm">
+        <h2>Models we repair:</h2>
+        <ul>
+          {% block models %}
+          <li>Iphone 5</li><li>Iphone 5s</li><li>Iphone SE</li><li>Iphone 6</li><li>Iphone 6s</li><li>Iphone 6s plus</li><li>Iphone 6 plus</li><li>Iphone 7</li><li>Iphone 7plus</li><li>Iphone 8</li><li>Iphone 8plus</li>
+          {% endblock %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+{% block script %}
+{{ super() }}
+<script src="{{ url_for('static', filename='js/select.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'admin/admin_home.html'%}
+{% block title %}Admin Data Base{% endblock %}
+{% block head %}
+{{ super()}}
+<style media="screen">
+  .upload-cont{
+    position: relative;
+    padding: 2%;
+  }
+
+  .form-control-file{
+    padding-left: 42%;
+  }
+  @media (max-width: 768px) {
+    .main{
+      margin-top: 30%;
+      padding: 0 3%;
+    }
+
+    .upload-cont{
+      padding: 0;
+    }
+
+    .form-control-file{
+      padding-left: 12%;
+    }
+  }
+</style>
+{% endblock %}
+{% block list %}
+<li>
+  <a href="{{ url_for('adminLog.a_home') }}">Dash Board</a>
+</li>
+<li>
+  <a href="{{ url_for('adminLog.a_base') }}">Repair Database</a>
+</li>
+<li class="active">
+  <a href="{{ url_for('adminLog.a_upload') }}">Upload Images to Sell Phones</a>
+</li>
+<li>
+  <a href="{{ url_for('adminLog.p_base') }}">Sell Phone Database</a>
+</li>
+{% endblock %}
+{% block nav_title %}Uplaod Success{% endblock %}
+{% block content %}
+  <section class="main">
+    <div class="container-fluid px-sm-5 upload-cont">
+      <div class="row mx-sm-5">
+        <div class="col-sm px-sm-3">
+          <div class="card mx-auto shadow-lg p-3 mb-4 rounded">
+            <div class="card-body">
+              <h4 class="card-title text-left">Uploaded Successfully!!</h4>
+              <h6 class="card-subtitle mb-2 text-muted text-left">Go Back to upload to upload another Item</h6>
+                <div class="text-center">
+                    <button type="button" class="btn btn-success btn-lg px-4 py-2"><a href="{{ url_for('adminLog.a_upload', next='/upload') }}" style="color: #fff;">Go Back To Upload</a></button>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

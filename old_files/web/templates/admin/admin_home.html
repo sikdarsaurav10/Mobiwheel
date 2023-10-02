@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.21/b-1.6.2/r-2.2.4/sl-1.3.1/datatables.min.css"/>
+    <link rel="stylesheet" href="{{url_for('static' , filename = 'css/admin.css')}}">
+    {% if title %}
+      <title>{{ title }}</title>
+    {% else %}
+      <title>Admin Panel Home</title>
+    {% endif %}
+    {% block head %}
+    {% endblock %}
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav id="sidebar">
+        <div id="dismiss">
+              <i class="fas fa-arrow-left"></i>
+        </div>
+        <div class="sidebar-header">
+            <h3>Admin Panel</h3>
+        </div>
+        <ul class="list-unstyled components">
+          {% block list %}
+            <li class="active">
+                <a href="{{ url_for('adminLog.a_home') }}">Dash Board</a>
+            </li>
+            <li>
+                <a href="{{ url_for('adminLog.a_base') }}">Repair Database</a>
+            </li>
+            <li>
+                <a href="{{ url_for('adminLog.a_upload') }}">Upload Images to Sell Phones</a>
+            </li>
+            <li>
+                <a href="{{ url_for('adminLog.p_base') }}">Sell Phone Database</a>
+            </li>
+            {% endblock %}
+        </ul>
+    </nav>
+      <div id="content">
+        <nav class="navbar navbar-expand-lg fixed-top second_nav shadow p-3 mb-5">
+        <div class="container-fluid">
+            <button type="button" id="sidebarCollapse" class="btn btn_nav">
+                <i class="fas fa-sliders-h"></i>
+            </button>
+            <a class="navbar-brand head_brand" href="#">{% block nav_title %}Dashboard{% endblock %}</a>
+            <ul class="navbar-nav float-right">
+              <li class="nav-item dropdown">
+                <button type="button" class="btn dropdown-toggle btn_user" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span id="nav_user"><i class="fas fa-user"></i></span>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuOffset">
+                  <a class="dropdown-item" href="{{ url_for('adminLog.logout') }}">Log out</a>
+                </div>
+              </li>
+            </ul>
+        </div>
+    </nav>
+  </div>
+  {% block content %}
+  <section class="main">
+    <div class="container-fluid card_container px-sm-5">
+      <div class="row mx-sm-5 card-row">
+        <div class="col-sm-3 px-sm-3 card-col">
+          <div class="card top_card mx-auto shadow-lg p-3 mb-4 rounded">
+            <div class="card-body">
+              <span class="card-icon float-left" style="color: #fbc658;"><i class="fas fa-database"></i></span>
+              <h6 class="card-subtitle mb-2 text-muted text-right">Capacity</h6>
+              <h4 class="card-title top-card-title text-right">XXX GB</h4>
+              <a href="#" class="text-left">Update Now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3 px-sm-3 card-col">
+          <div class="card top_card mx-auto shadow-lg p-3 mb-4 rounded">
+            <div class="card-body">
+              <span class="card-icon float-left" style="color: #6bd098;"><i class="fas fa-calendar-day"></i></span>
+              <h6 class="card-subtitle mb-2 text-muted text-right">Today Visit</h6>
+              <h4 class="card-title top-card-title text-right">XXX</h4>
+              <a href="#" class="text-left">Update Now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3 px-sm-3 card-col">
+          <div class="card top_card mx-auto shadow-lg p-3 mb-4 rounded">
+            <div class="card-body">
+              <span class="card-icon float-left" style="color: #f08861;"><i class="fas fa-calendar-week"></i></span>
+              <h6 class="card-subtitle mb-2 text-muted text-right">Week Visit</h6>
+              <h4 class="card-title top-card-title text-right">XXX</h4>
+              <a href="#" class="text-left"></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3 px-sm-3 card-col">
+          <div class="card top_card mx-auto shadow-lg p-3 mb-4 rounded">
+            <div class="card-body">
+              <span class="card-icon float-left" style="color: #51cbce;"><i class="fas fa-tools"></i></span>
+              <h6 class="card-subtitle mb-2 text-muted text-right">Repair Queries</h6>
+              <h4 class="card-title top-card-title text-right">XXX</h4>
+              <a href="#" class="text-left">Update Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mx-sm-5 mx-auto">
+        <div class="col-sm px-sm-3 card-user-col">
+          <div class="card user-card mx-auto shadow-lg p-3 mb-4 rounded">
+            <div class="card-body">
+              <h4 class="card-title text-left">User Behaviour</h4>
+              <h6 class="card-subtitle mb-2 text-muted text-left">24 hr Performance</h6>
+              <img src="https://www.snowdonia.gov.wales/__data/assets/image/0036/249579/Visitor-Numbers-chart.JPG" class="user-graph" alt="user chart image">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mx-sm-5 mx-auto">
+        <div class="col-sm px-sm-3 card-user-col">
+          <div class="card user-card mx-auto shadow-lg p-3 mb-4 rounded">
+            <div class="card-body">
+              <h4 class="card-title text-left">Top Repairing Brands</h4>
+              <h6 class="card-subtitle mb-2 text-muted text-left">Weekly Estimated</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endblock %}
+  <div class="overlay"></div>
+</div>
+
+<!-- scripts -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<!-- bootstrap script -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/7021a802fd.js" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.21/b-1.6.2/r-2.2.4/sl-1.3.1/datatables.min.js"></script>
+{% block script %}
+<script src="{{url_for('static' , filename = 'js/admin.js')}}"></script>
+{% endblock %}
+  </body>
+</html>
