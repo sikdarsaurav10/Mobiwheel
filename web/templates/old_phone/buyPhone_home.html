@@ -1,0 +1,109 @@
+{% extends 'layout.html'%}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/buyPhone.css') }}">
+{% endblock%}
+{% block nav %}
+<a href="{{ url_for('index') }}" class="nav-item nav-link">Home</a>
+<a href="{{ url_for('about') }}" class="nav-item nav-link">About us</a>
+<a href="{{ url_for('brand') }}" class="nav-item nav-link">Brands</a>
+<a href="{{ url_for('buyPhone') }}" class="nav-item nav-link active">Buy Used Phone</a>
+{% endblock %}
+{% block content %}
+<br>
+<div class="px-5">
+  <div class="container-fluid text-center py-2" id="topHead">
+    <h5 style="color: seashell;"><strong>Get the phone delivered at your Door Step within 24 hrs. COD(cash on delivery is also available)</strong></h5>
+  </div>
+</div>
+<div class="container-fluid filter">
+    <button type="button" id="filterPhone" class="btn btn-dark btn-lg btn-block">Filter results</button>
+    <p></p>
+    <div  id="filterHidden">
+      <div class="card">
+        <div class="card-body">
+          <form action="/buy_phone/filter" method="POST" id="filterForm" enctype="multipart/form-data">
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="inputBrand"><small>Brand</small></label>
+                  <select class="form-control" name="brand" id="inputBrand">
+                    <option selected disabled>--Choose Brand--</option>
+                    {% for i in output %}
+                    <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="inputRam"><small>Ram</small></label>
+                  <select class="form-control" name="ram" id="inputRam">
+                    <option selected disabled>--Choose Ram--</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="6">6</option>
+                    <option value="6">8</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                  <label for="inputPrice"><small>Prince Range</small></label>
+                  <select class="form-control" name="price" id="inputPrice">
+                    <option selected disabled>--Choose Price Range--</option>
+                    <option value="5000">Below 5000</option>
+                    <option value="10000">5000 - 10000</option>
+                    <option value="15000">10000 - 15000</option>
+                    <option value="20000">15000 - 20000</option>
+                    <option value="21000">Above 20000</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <button type="submit" name="button" class="btn btn-success px-5" id="submitFilter" >Filter</button>
+            <button type="button" name="button" class="btn btn-success px-5 inline" id="removeFilter"><a href="{{ url_for('buyPhone') }}" style="color: #fff;">Remove Filters</a></button>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>
+<br>
+<section class="phoneShow">
+  <div class="container-fluid mobile">
+    <div class="row" id="phoneViewRow">
+      {% for phone in phones.items %}
+      <div class="col-sm-3">
+        <div class="phoneView">
+          <img src="{{ url_for('static', filename='images/phones/titleImages/'+phone.title_img) }}" alt="phone image">
+          <p></p>
+          <div class="phoneViewText">
+            <legend class="phoneTextArea">{{ phone.brand }} | {{ phone.model }}</legend>
+            <legend class="phoneTextArea">{{ phone.ram }} GB Ram | ₹ {{ phone.price }}</legend>
+          </div>
+          <a href="{{ url_for('viewPhone', public_id=phone.public_id) }}" class="stretched-link"></a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="text-center mt-3">
+        {% for page_num in phones.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+          {% if page_num %}
+            {% if phones.page == page_num %}
+            <a href="{{ url_for('buyPhone', page=page_num) }}" class="btn btn-info mb-4" >{{ page_num }}</a>
+            {% else %}
+            <a href="{{ url_for('buyPhone', page=page_num) }}" class="btn btn-outline-info mb-4" >{{ page_num }}</a>
+            {% endif %}
+          {% else %}
+            ...
+          {% endif %}
+        {% endfor %}
+      </div>
+  </div>
+</section>
+{% endblock %}
+{% block script %}
+{{ super() }}
+  <script src="{{ url_for('static', filename='js/buyPhone.js') }}"></script>
+{% endblock %}

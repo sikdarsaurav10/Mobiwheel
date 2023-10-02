@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Update form</title>
+    <style>
+        body{
+            background-color: darkgrey;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="container">
+            <div class="card mt-4 shadow p-3 mb-5 bg-white rounded">
+                <div class="card-body">
+                    <br>
+                    <legend><strong>Update Phone Upload Inoformation</strong></legend>
+                    <p></p>
+                    <hr>
+                    <form action="{{ url_for('adminLog.edit_uploadNew', public_id=public_id) }}" method="POST">
+                        <div class="form-group row">
+                            <label for="inputBrand" class="col-sm-3 col-form-label"><h5><strong>Brand</strong></h5></label>
+                            <div class="col-sm-4 offdet-1">
+                                <input type="text" class="form-control" id="inputBrand" name="brand" value="{{ brand }}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputModel" class="col-sm-3 col-form-label"><h5><strong>Model</strong></h5></label>
+                            <div class="col-sm-4 offdet-1">
+                                <input type="text" class="form-control" id="inputModel" name="model" value="{{ model }}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="Ram" class="col-sm-3 col-form-label"><h5><strong>Ram</strong></h5></label>
+                            <div class="col-sm-4 offdet-1">
+                                <input type="number" class="form-control" id="Ram" name="ram" value="{{ ram }}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPrice" class="col-sm-3 col-form-label"><h5><strong>Price</strong></h5></label>
+                            <div class="col-sm-4 offdet-1">
+                                <input type="text" class="form-control" id="inputPrice" name="price" value="{{ price }}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputDescp" class="col-sm-3 col-form-label"><h5><strong>Description</strong></h5></label>
+                            <div class="col-sm-4 offdet-1">
+                                <input type="text" class="form-control" id="inputDescp" name="description" value="{{ descp }}">
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <input class="btn btn-primary active px-5" type="submit" value="Update">
+                        </div>
+                    </form>
+                </div>
+            </div>
+      </div>
+  </section>
+
+  <!-- JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>

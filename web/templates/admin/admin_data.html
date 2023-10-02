@@ -1,0 +1,93 @@
+{% extends 'admin/admin_home.html'%}
+{% block head %}
+<style media="screen">
+  .table-cont{
+    position: relative;
+    padding: 2%;
+  }
+  @media (max-width: 768px) {
+    .main{
+      margin-top: 30%;
+    }
+
+    .table-cont{
+      padding: 0;
+    }
+
+    #myTable_next{
+      margin-right: 20px;
+    }
+
+    #myTable_previous{
+      margin-left: 20px;
+    }
+  }
+</style>
+{% endblock %}
+{% block list %}
+<li>
+  <a href="{{ url_for('adminLog.a_home') }}">Dash Board</a>
+</li>
+<li class="active">
+  <a href="{{ url_for('adminLog.a_base') }}">Repair Database</a>
+</li>
+<li>
+  <a href="{{ url_for('adminLog.a_upload') }}">Upload Images to Sell Phones</a>
+</li>
+<li>
+  <a href="{{ url_for('adminLog.p_base') }}">Sell Phone Database</a>
+</li>
+{% endblock %}
+{% block nav_title %}Data Base{% endblock %}
+{% block content %}
+  <section class="main">
+    <div class="container-fluid px-sm-5 table-cont">
+      <div class="row mx-sm-5 mx-auto">
+        <div class="col-sm px-sm-3 card-user-col">
+          <div class="card user-card mx-auto shadow-lg p-3 mb-4 rounded">
+            <div class="card-body">
+              <div class="tab_btn float-right">
+                <a href="{{ url_for('adminLog.a_baseCreate') }}">
+                  <button type="button" class="btn btn-primary active">Create New Record</button>
+                </a>
+              </div>
+              <h4 class="card-title text-left">Data Base</h4>
+              <h6 class="card-subtitle mb-2 text-muted text-left">All Queries</h6>
+              <hr>
+              <table id="myTable" class="display max-desktop table table-striped table-bordered">
+                <thead>
+                    <tr>
+                      <th></th>
+                      <th>Phone Brand</th>
+                      <th>Phone Model</th>
+                      <th>Customer Name</th>
+                      <th>Phone Problem</th>
+                      <th>Contact Number</th>
+                      <th></th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                  {% for person in people %}
+                  <tr>
+                    <td></td>
+                    <td>{{ person.brand }}</td>
+                    <td>{{ person.md }}</td>
+                    <td>{{ person.name }}</td>
+                    <td>{{ person.problem }}</td>
+                    <td>{{ person.number }}</td>
+                    <td>
+                      <a href="{{ url_for('adminLog.remove_user', user_id=person.id) }}">
+                        <button class="btn btn-danger">DELETE</button>
+                      </a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+            </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+{% endblock %}

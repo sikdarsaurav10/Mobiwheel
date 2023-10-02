@@ -1,0 +1,94 @@
+{% extends 'admin/admin_home.html'%}
+{% block title %}Admin Data Base{% endblock %}
+{% block head %}
+{{ super()}}
+<style media="screen">
+  .upload-cont{
+    position: relative;
+    padding: 2%;
+  }
+
+  .form-control-file{
+    padding-left: 42%;
+  }
+  @media (max-width: 768px) {
+    .main{
+      margin-top: 30%;
+      padding: 0 3%;
+    }
+
+    .upload-cont{
+      padding: 0;
+    }
+
+    .form-control-file{
+      padding-left: 12%;
+    }
+  }
+</style>
+{% endblock %}
+{% block list %}
+<li>
+  <a href="{{ url_for('adminLog.a_home') }}">Dash Board</a>
+</li>
+<li>
+  <a href="{{ url_for('adminLog.a_base') }}">Repair Database</a>
+</li>
+<li class="active">
+  <a href="{{ url_for('adminLog.a_upload') }}">Upload Images to Sell Phones</a>
+</li>
+<li>
+  <a href="{{ url_for('adminLog.p_base', next='/phoneData') }}">Sell Phone Database</a>
+</li>
+{% endblock %}
+{% block nav_title %}Uplaod Photos{% endblock %}
+{% block content %}
+  <section class="main">
+    <div class="container-fluid px-sm-5 upload-cont">
+      <div class="row mx-sm-5">
+        <div class="col-sm px-sm-3">
+          <div class="card mx-auto shadow-lg p-3 mb-4 rounded">
+            <div class="card-body">
+              <h4 class="card-title text-left">Upload Photos</h4>
+              <h6 class="card-subtitle mb-2 text-muted text-left">Select the photos below to upload and the necessary fields!!</h6>
+              <hr>
+              <p></p>
+              <form class="" action="/admin/upload/new" method="POST" enctype="multipart/form-data">
+                <div class="form-group text-center">
+                  <label for="uploadImg"><h5><b>Choose Title Image</b></h5></label>
+                  <input type="file" class="form-control-file" id="uploadImg"  name="titleImg">
+                </div>
+                <p></p>
+                <div class="form-group text-center">
+                  <label for="uploadFile "><h5><b>Choose Files</b></h5></label>
+                  <input type="file" class="form-control-file" id="uploadFile"  name="file" multiple>
+                </div>
+                <p></p><div class="form-group">
+                  <label for="phoneBrand">Brand</label>
+                  <input type="text" class="form-control" id="phoneBrand" name="brand" placeholder="Your Phone Brand" required>
+                </div>
+                <div class="form-group">
+                  <label for="phoneModel">Model</label>
+                  <input type="text" class="form-control" id="phoneModel" name="model" placeholder="Your Phone Model" required>
+                </div>
+                <div class="form-group">
+                  <label for="Ram">Ram</label>
+                  <input type="number" class="form-control" id="Ram" name="ram">
+                </div>
+                <div class="form-group">
+                  <label for="phonePrice">Price</label>
+                  <input type="text" class="form-control" id="phonePrice" name="price" placeholder="Your Phone Model" required>
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Phone Description</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"></textarea>
+                </div>
+                 <button type="submit" class="btn btn-success mb-2 px-5">Upload</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Saurav Sikdar">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/phoneView.css') }}">
+    <title>Phone Image</title>
+  </head>
+  <body>
+    <div class="loader_bg">
+      <div class="loader"></div>
+    </div>
+    <header>
+      <div class="container-fluid backMenu">
+        <nav class="nav nav-pills nav-fill">
+          <a class="nav-item nav-link active" href="{{ url_for('buyPhone') }}">Back to the Main Menu!!</a>
+        </nav>
+      </div>
+      <hr>
+      <br>
+    </header>
+    <div class="container-fluid imageSlider">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          {% for i in range(1,imgs|length) %}
+          <li data-target="#carouselExampleIndicators" data-slide-to="i"></li>
+          {% endfor %}
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active p-3">
+            <img src="{{ url_for('static', filename='images/phones/'+imgs[0]) }}" class="d-block" alt="phone image">
+          </div>
+          {% for i in range(1,imgs|length) %}
+          <div class="carousel-item">
+            <img src="{{ url_for('static', filename='images/phones/'+imgs[i]) }}" class="d-block" alt="phone image">
+          </div>
+          {% endfor %}
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+    <br>
+    <div class="container-fluid phoneInfo">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card shadow-lg p-1 mb-4 bg-white phoneInfoCard">
+            <div class="card-body text-center">
+              <h3 class="card-title">{{ brand }}</h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card shadow-lg p-1 mb-4 bg-white phoneInfoCard">
+            <div class="card-body text-center">
+              <h3 class="card-title">{{ model }}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card shadow-lg p-1 mb-4 bg-white phoneInfoCard">
+            <div class="card-body text-center">
+              <h3 class="card-title">{{ ram }} GB Ram</h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card shadow-lg p-1 mb-4 bg-white phoneInfoCard">
+            <div class="card-body text-center">
+              <h3 class="card-title"> ₹ {{ price }}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm">
+          <div class="card shadow-lg p-4 mb-4 bg-white phoneInfoCard">
+            <div class="card-body">
+              <h5>{{ description }}</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <button type="button" name="button" class="btn btn-success btn-lg btn-block mb-4"><a href="tel:7417736676" id="call">CALL NOW TO BUY!!!</a></button>
+      <p></p>
+      <a href="https://www.google.com/maps/search/?api=1&query=30.325157,78.040292&query_place_id=ChIJEXIyW7cpCTkRMu69Bv852CI"><button class="btn btn-warning btn-lg btn-block mb-4 active" style="color: #fff;"><strong>VISIT STORE!!!</strong></button></a>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- bootstrap script -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+      $(window).on("load",function(){$(".loader_bg").fadeOut("slow")})
+    </script>
+  </body>
+</html>

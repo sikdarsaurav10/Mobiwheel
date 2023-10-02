@@ -1,0 +1,186 @@
+{% extends 'layout.html'%}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+{% endblock %}
+{% block nav %}
+<a href="{{ url_for('index') }}" class="nav-item nav-link">Home</a>
+<a href="{{ url_for('about') }}" class="nav-item nav-link active">About us</a>
+<a href="{{ url_for('brand') }}" class="nav-item nav-link">Brands</a>
+<a href="{{ url_for('buyPhone') }}" class="nav-item nav-link">Buy Used Phone</a>
+{% endblock %}
+{% block content %}
+<section class="hdImg">
+  <div class="container-fluid hdImgCont">
+    <div class="hdImgText">
+      <h1 id="hdText">About Us</h1>
+    </div>
+  </div>
+  <br>
+  <hr>
+</section>
+<section class="abtInfo">
+  <div class="container abtinfoTxt">
+    <p>MobiWheel, a division of Perfect Mobiles R.G.M Plaza, is an online electronics repair service that dedicates itself towards the highest degree of customer satisfaction. We specialize in fixing smartphones, tablets, laptops, and various other devices that require utmost care and attention.</p><p>MobiWheel will free you from the nuisance of dealing with untrustworthy service centers, where you have to deposit your device for an uncertain amount of time. You also risk the theft of personal data and unauthorized tampering of phone components.</p><p>With MobiWheel, you won’t have to bother visiting time-consuming, distant repair centers.</p><p>In the waiting line at a service center, we’re sure you wished for a Genie that visits your home with workshop in his pocket, and fixes your device with a finger-snap. Mobiwheel is that Genie.</p><p>After you book an appointment with MobiWheel citing the device issue(s) in detail, our repair expert will visit you, and fix your device on the spot. Your device will be rendered brand new once we’re done!</p><p></p><h3>Mission</h3> <ul> <li>To provide a door-stop repairing service that is fair, fast, and reliable</li><li>To warrant transparent pricing of the repairing services that are only levied after the customer’s problem is completely fixed</li><li>To provide the best customer experience at every step of our relationship</li></ul> <p></p><h3>Vision</h3> <ul> <li>We strive to make MobiWheel a household name, a brand recognized for rendering quality repair services at affordable prices.</li><li>We are also determined to keep the environment free from e-waste with the help of green practices and e-recycling. After all, we do not inherit the Earth from our ancestors we borrow it from our children.</li></ul> <p></p><h3>The Core Pillars</h3> <ul> <li>A team of skilled technicians and innovative engineers that guarantees an expert resolution to your problem(s)</li><li>Renowned for efficiency in the customer service sector</li><li>A passion to solve problems with innovative approaches using state-of-the-art tools.</li><li>Assurance of quality at every stage of customer relationship.</li></ul> <br>
+  </div>
+</section>
+<section class="ourTm">
+  <div class="container team">
+    <h2>Meet the Team</h2>
+    <div class="row">
+      <div class="col-md-4 col-sm">
+        <div class="card-container">
+          <div class="card">
+            <div class="front">
+                <div class="cover"> <img src="{{url_for('static', filename='images/rotating_card_thumb2.webp')}}" alt="first user background image"/> </div><div class="user"> <img class="img-circle" src="{{url_for('static', filename='images/rotating_card_profile3.webp')}}" alt="first user image"/> </div>
+                <div class="contentCard">
+                    <div class="mainCard">
+                        <h3 class="nameCard">Suhail Ahmed siddiqui</h3>
+                        <p class="profession">Entrepreneur & Founder</p>
+                        <p class="text-center">An entrepreneur & visionary who always strive for the best of things as you know "GOOD things ain't cheap & CHEAP things ain't good"</p>
+                    </div>
+                    <div class="footerCard">
+                        <i class="fa fa-mail-forward"></i> Hover/Click for More
+                    </div>
+                </div>
+            </div>
+            <div class="back">
+                <div class="headerCard">
+                    <h5 class="mottoCard">"To have the Best & provide the Best is Our Motto!!"</h5>
+                </div>
+                <div class="contentCard">
+                    <div class="mainCard">
+                        <h4 class="text-center">Job Description</h4>
+                        <p class="text-center">Mechanical Engineer, Build & lead the team, Develop, maintain the Business plan and many more...</p>
+                        <div class="stats-container">
+                            <div class="stats">
+                                <h4>235</h4>
+                                <p> Followers</p>
+                            </div>
+                            <div class="stats">
+                                <h4>114</h4>
+                                <p>Following</p>
+                            </div>
+                            <div class="stats">
+                                <h4>5</h4>
+                                <p>Projects</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footerCard">
+                    <div class="social-links text-center">
+                        <a href="https://www.facebook.com/profile.php?id=100005564928816" class="facebook"><i class="fa fa-facebook fa-fw"></i></a>
+                        <a href="mailto:mdsuhail9716@gmail.com" class="google"><i class="fa fa-google-plus fa-fw"></i></a>
+                        <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm">
+        <div class="card-container">
+          <div class="card">
+            <div class="front">
+                <div class="cover"> <img src="{{url_for('static', filename='images/rotating_card_thumb3.webp')}}" alt="second user background image"/> </div><div class="user"> <img class="img-circle" src="{{ url_for('static', filename='images/rotating_card_profile.webp') }}" alt="second user image"/> </div>
+                <div class="contentCard">
+                    <div class="mainCard">
+                      <h3 class="nameCard">Faizal Siddiqui</h3>
+                      <p class="profession">Co-Founder & Chief Technician</p>
+                        <p class="text-center">The brains and drivrinf force behind the whole plan cause as they say somebody's gotta captain the ship</p>
+                    </div>
+                    <div class="footerCard">
+                        <i class="fa fa-mail-forward"></i> Hover/Click for More
+                    </div>
+                </div>
+            </div>
+            <div class="back">
+                <div class="headerCard">
+                    <h5 class="mottoCard">"To have the Best & provide the Best is Our Motto!!"</h5>
+                </div>
+                <div class="contentCard">
+                    <div class="mainCard">
+                        <h4 class="text-center">Job Description</h4>
+                        <p class="text-center">Mobile Repairing, Technician, Finance and many more...</p>
+                        <div class="stats-container">
+                          <div class="stats">
+                              <h4>235</h4>
+                              <p> Followers</p>
+                          </div>
+                          <div class="stats">
+                              <h4>114</h4>
+                              <p>Following</p>
+                          </div>
+                          <div class="stats">
+                              <h4>5</h4>
+                              <p>Projects</p>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footerCard">
+                    <div class="social-links text-center">
+                        <a href="https://www.facebook.com/faizal.alisiddqui" class="facebook"><i class="fa fa-facebook fa-fw"></i></a>
+                        <a href="mailto: Faisalali9412437155@gmail.com" class="google"><i class="fa fa-google-plus fa-fw"></i></a>
+                        <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm">
+        <div class="card-container">
+          <div class="card">
+            <div class="front">
+                <div class="cover"> <img src="{{url_for('static', filename='images/rotating_card_thumb.webp')}}" alt="third user background image"/> </div><div class="user"> <img class="img-circle" src="{{url_for('static', filename='images/rotating_card_profile2.webp')}}" alt="third user image"/> </div>
+                <div class="contentCard">
+                    <div class="mainCard">
+                      <h3 class="nameCard">Saurav Sikdar</h3>
+                      <p class="profession">Full Stack Developer</p>
+                        <p class="text-center">If someone offers you an amazing opportunity but you're not sure you can do it, say yes – then learn how to do it later! cause the things we have to learn before we can do them, we learn by doing them.</p>
+                    </div>
+                    <div class="footerCard">
+                        <i class="fa fa-mail-forward"></i> Hover/Click for More
+                    </div>
+                </div>
+            </div>
+            <div class="back">
+                <div class="headerCard">
+                    <h5 class="mottoCard">"To have the Best & provide the Best is Our Motto!!"</h5>
+                </div>
+                <div class="contentCard">
+                    <div class="mainCard">
+                        <h4 class="text-center">Job Description</h4>
+                        <p class="text-center">Full Stack Web Development, HTML5, CSS3, Bootstrap, Jquery, Flask, RESTApi and many others...</p>
+                        <div class="stats-container">
+                          <div class="stats">
+                              <h4>200</h4>
+                              <p> Followers</p>
+                          </div>
+                          <div class="stats">
+                              <h4>300</h4>
+                              <p>Following</p>
+                          </div>
+                          <div class="stats">
+                              <h4>3</h4>
+                              <p>Projects</p>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footerCard">
+                    <div class="social-links text-center">
+                        <a href="https://www.facebook.com/saurav.sikdar.12/" class="facebook"><i class="fa fa-facebook fa-fw"></i></a>
+                        <a href="mailto:sikdarsaurav10@gmail.com" class="google"><i class="fa fa-google-plus fa-fw"></i></a>
+                        <a href="https://www.linkedin.com/in/s-sikdar" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
